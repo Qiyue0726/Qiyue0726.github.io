@@ -45,6 +45,8 @@
   
 
   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
 
   
 
@@ -316,7 +318,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper post focus' style="display: ;">
+        <div id="half" class='cover-wrapper post search' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/home/魔女兵器.png"></div>
           
@@ -327,10 +329,16 @@
       <p class="title">素晴らしい未来</p>
     
     
-      <p class="subtitle">素晴らしい</p>
-    
   </div>
   <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="A Wonderful Theme for Hexo" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
     <div class='menu navigation'>
       <div class='list-h'>
         
@@ -369,7 +377,7 @@
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
     <img no-lazy src="">
-    <p>请设置文章作者</p>
+    <p>凉月</p>
   </a>
 </div>
 
@@ -595,6 +603,22 @@
       
         <div class="aplayer-container">
           
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='3219590382'
+      list-folded='true'>
+    </meting-js>
+  
 
 
         </div>
@@ -879,6 +903,26 @@ var loadCSS = function( href, before, media, attributes ){
         
       
         
+          <li class='music name'>
+            <p class='nav music-title fix-cursor-default'></p>
+          </li>
+          <li class='music ctrl'>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+          </li>
+          <li class='music volume'>
+            <a class='nav volume'>
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class='left fa fa-volume-off fa-fw'></i>
+                  <i class='right fa fa-volume-up fa-fw'></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
       
     </ul>
   </div>
@@ -983,7 +1027,7 @@ var loadCSS = function( href, before, media, attributes ){
       }
 
       // 有音乐播放器
-      if ('' == true && ('home,help,hr,source_docs,source_theme,hr,print,hr,music'||[]).includes('music')) {
+      if ('true' == true && ('home,help,hr,source_docs,source_theme,hr,print,hr,music'||[]).includes('music')) {
         // 如果有aplayer，初始化一下
       	try {
       		checkAPlayer();
@@ -1065,6 +1109,28 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '3219590382';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+</script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+
+
+
+  
+<script src="/js/aplayer.js"></script>
+
+
+
+
 
 
   
@@ -1123,7 +1189,7 @@ var loadCSS = function( href, before, media, attributes ){
       appId: "kwEiAofawTeHKkTooNf3tgA9-MdYXbMMI",
       appKey: "b8SmsnX5AeD82TwmxfndWnhv",
       pageSize: '10',
-      avatar: 'robohash',
+      avatar: 'retro',
       lang: 'zh-cn',
       visitor: 'true',
       highlight: 'true',
