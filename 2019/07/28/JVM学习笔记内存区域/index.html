@@ -69,7 +69,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -320,7 +320,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper post blank' style="display: ;">
+        <div id="full" class='cover-wrapper post blank' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/home/魔女兵器.png"></div>
           
@@ -400,8 +400,8 @@
   
   <p>最近在看点JVM的东西，看到<a target="_blank" rel="noopener" href="https://snailclimb.gitee.io/javaguide/#/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F">JVM的内存区域</a>就做了点笔记。</p>
 <h1 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h1><p>先来看看虚拟机的内存区域的基本组成吧。</p>
-<h4 id="JDK1-8之前："><a href="#JDK1-8之前：" class="headerlink" title="JDK1.8之前："></a><strong>JDK1.8之前：</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F-1ee2ff4a.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F-1ee2ff4a.png" srcset="data:image/png;base64,666" alt="JVM运行时数据区域.png"></p>
-<h4 id="JDK1-8以后："><a href="#JDK1-8以后：" class="headerlink" title="JDK1.8以后："></a><strong>JDK1.8以后：</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8-20714dd1.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8-20714dd1.png" srcset="data:image/png;base64,666" alt="20193Java运行时数据区域JDK1.8.png"></p>
+<h4 id="JDK1-8之前："><a href="#JDK1-8之前：" class="headerlink" title="JDK1.8之前："></a><strong>JDK1.8之前：</strong></h4><div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F-1ee2ff4a.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F-1ee2ff4a.png" srcset="data:image/png;base64,666" alt="JVM运行时数据区域.png"/></div><span class="image-caption">JVM运行时数据区域.png</span></div>
+<h4 id="JDK1-8以后："><a href="#JDK1-8以后：" class="headerlink" title="JDK1.8以后："></a><strong>JDK1.8以后：</strong></h4><div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8-20714dd1.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8-20714dd1.png" srcset="data:image/png;base64,666" alt="20193Java运行时数据区域JDK1.8.png"/></div><span class="image-caption">20193Java运行时数据区域JDK1.8.png</span></div>
 <p>其中，内存区域主要分为线程私有和线程共享。</p>
 <p><strong>线程私有：</strong></p>
 <ul>
@@ -439,7 +439,7 @@
 <h1 id="堆（heap）"><a href="#堆（heap）" class="headerlink" title="堆（heap）"></a>堆（heap）</h1><p>堆作为线程共享的区域，在虚拟机中占用的内存是最大的，它的生命周期和虚拟机相同，随着虚拟机的启动而创建，用于存放对象实例和数组内存，是垃圾收集器管理的主要区域。</p>
 <h1 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h1><p>方法区是用于存储已被虚拟机加载过的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
 <h1 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h1><p>用于存放编译期生成的各种字面量和符号引用。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0.jpg" srcset="data:image/png;base64,666" alt="26038433.jpg"></p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0.jpg" srcset="data:image/png;base64,666" alt="26038433.jpg"/></div><span class="image-caption">26038433.jpg</span></div>
 <p>其作为方法区的一部分，自然会受到方法区内存的限制，当常量池无法再申请到内存是便会抛出<code>OutOfMemoryError</code>异常。</p>
 <h1 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h1><p>直接内存并不属于虚拟机运行时数据区的一部分，也不是虚拟机规范中定义的内存区域，但是这部分内存也被频繁地使用。而且也可能导致OutOfMemoryError异常出现。</p>
 <p><strong>以上就是看完资料后做的一些笔记，鉴于原文后面的东西我现在也看不太懂，便不做记录，日后能力提升了再做记录吧。</strong></p>
@@ -634,7 +634,7 @@
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 

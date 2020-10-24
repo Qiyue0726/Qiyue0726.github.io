@@ -56,9 +56,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> SpringBoot </tag>
             
         </tags>
       
@@ -77,9 +77,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> SpringBoot </tag>
             
             <tag> Redis </tag>
             
@@ -100,9 +100,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> SpringBoot </tag>
             
         </tags>
       
@@ -115,7 +115,7 @@
       <link href="2019/07/28/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/"/>
       <url>2019/07/28/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/</url>
       
-        <content type="html"><![CDATA[<p>最近在看点JVM的东西，看到<a href="https://snailclimb.gitee.io/javaguide/#/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F">JVM的内存区域</a>就做了点笔记。</p><h1 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h1><p>先来看看虚拟机的内存区域的基本组成吧。</p><h4 id="JDK1-8之前："><a href="#JDK1-8之前：" class="headerlink" title="JDK1.8之前："></a><strong>JDK1.8之前：</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F-1ee2ff4a.png" alt="JVM运行时数据区域.png"></p><h4 id="JDK1-8以后："><a href="#JDK1-8以后：" class="headerlink" title="JDK1.8以后："></a><strong>JDK1.8以后：</strong></h4><p><img src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8-20714dd1.png" alt="20193Java运行时数据区域JDK1.8.png"></p><p>其中，内存区域主要分为线程私有和线程共享。</p><p><strong>线程私有：</strong></p><ul><li>程序计数器</li><li>虚拟机栈</li><li>本地方法栈</li></ul><p><strong>线程共享：</strong></p><ul><li>堆（heap）</li><li>方法区</li><li>直接内存（非运行时数据区域的一部分）</li></ul><h1 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h1><p>程序计数器在虚拟机中占用内存较小，相当于当前线程在执行字节码文件的行号指示器，类似于调试时语句的执行步骤。</p><p><strong>注</strong> 程序计数器是虚拟机中唯一一个不会出现<code>OutOfMemoryError</code>的内存区域，它的生命周期和线程一样，随线程的创建而创建，消亡而消亡。</p><h1 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h1><p>通常我们说的栈内存，指的就是虚拟机栈（或者说当中的局部变量部分）</p><p>它描述的是Java方法执行的内存模型，每次方法调用的数据都是通过栈传递的。</p><p>虚拟机栈是由一个个栈帧组成的，每个栈帧都拥有一个局部变量表（存放基本类型和对象引用）、操作数栈、动态链、方法出口信息。</p><p>虚拟机栈的生命周期和线程相同，会出现<code>OutOfMemoryError</code>和<code>StackOverFlowError</code>两种异常。</p><ul><li><p><code>OutOfMemoryError</code>：若虚拟机栈的内存大小不允许扩展，当线程请求栈的深度超过当前虚拟机栈的最大深度时，则抛出该异常。</p></li><li><p><code>StackOverFlowError</code>：若虚拟机的内存大小运行动态扩展，且当线程请求栈时内存刚好用完了，无法再进行动态扩展，这时就会抛出该异常。</p></li></ul><h1 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h1><p>与虚拟机栈相似，不同的是：</p><ul><li><p>虚拟机栈是为虚拟机执行Java方法（字节码）服务的</p></li><li><p>本地方法栈是为虚拟机使用到的Native方法（虚拟机底层的方法，C语言编写，可以访问操作系统底层信息）服务的</p></li></ul><p>本地方法栈同样会有栈帧，其存放的东西与虚拟机栈相同（面向的是本地方法），在HotSpot虚拟机（Sun JDK和OpenJDK中所带的虚拟机）实现中是把本地方法栈和虚拟机栈合二为一的</p><p>也会出现<code>OutOfMemoryError</code>和<code>StackOverFlowError</code>两种异常。</p><h1 id="堆（heap）"><a href="#堆（heap）" class="headerlink" title="堆（heap）"></a>堆（heap）</h1><p>堆作为线程共享的区域，在虚拟机中占用的内存是最大的，它的生命周期和虚拟机相同，随着虚拟机的启动而创建，用于存放对象实例和数组内存，是垃圾收集器管理的主要区域。</p><h1 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h1><p>方法区是用于存储已被虚拟机加载过的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p><h1 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h1><p>用于存放编译期生成的各种字面量和符号引用。</p><p><img src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0.jpg" alt="26038433.jpg"></p><p>其作为方法区的一部分，自然会受到方法区内存的限制，当常量池无法再申请到内存是便会抛出<code>OutOfMemoryError</code>异常。</p><h1 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h1><p>直接内存并不属于虚拟机运行时数据区的一部分，也不是虚拟机规范中定义的内存区域，但是这部分内存也被频繁地使用。而且也可能导致OutOfMemoryError异常出现。</p><p><strong>以上就是看完资料后做的一些笔记，鉴于原文后面的东西我现在也看不太懂，便不做记录，日后能力提升了再做记录吧。</strong></p>]]></content>
+        <content type="html"><![CDATA[<p>最近在看点JVM的东西，看到<a href="https://snailclimb.gitee.io/javaguide/#/java/jvm/Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F">JVM的内存区域</a>就做了点笔记。</p><h1 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h1><p>先来看看虚拟机的内存区域的基本组成吧。</p><h4 id="JDK1-8之前："><a href="#JDK1-8之前：" class="headerlink" title="JDK1.8之前："></a><strong>JDK1.8之前：</strong></h4><div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F-1ee2ff4a.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F-1ee2ff4a.png" srcset="data:image/png;base64,666" alt="JVM运行时数据区域.png"/></div><span class="image-caption">JVM运行时数据区域.png</span></div><h4 id="JDK1-8以后："><a href="#JDK1-8以后：" class="headerlink" title="JDK1.8以后："></a><strong>JDK1.8以后：</strong></h4><div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8-20714dd1.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9FJDK1.8-20714dd1.png" srcset="data:image/png;base64,666" alt="20193Java运行时数据区域JDK1.8.png"/></div><span class="image-caption">20193Java运行时数据区域JDK1.8.png</span></div><p>其中，内存区域主要分为线程私有和线程共享。</p><p><strong>线程私有：</strong></p><ul><li>程序计数器</li><li>虚拟机栈</li><li>本地方法栈</li></ul><p><strong>线程共享：</strong></p><ul><li>堆（heap）</li><li>方法区</li><li>直接内存（非运行时数据区域的一部分）</li></ul><h1 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h1><p>程序计数器在虚拟机中占用内存较小，相当于当前线程在执行字节码文件的行号指示器，类似于调试时语句的执行步骤。</p><p><strong>注</strong> 程序计数器是虚拟机中唯一一个不会出现<code>OutOfMemoryError</code>的内存区域，它的生命周期和线程一样，随线程的创建而创建，消亡而消亡。</p><h1 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h1><p>通常我们说的栈内存，指的就是虚拟机栈（或者说当中的局部变量部分）</p><p>它描述的是Java方法执行的内存模型，每次方法调用的数据都是通过栈传递的。</p><p>虚拟机栈是由一个个栈帧组成的，每个栈帧都拥有一个局部变量表（存放基本类型和对象引用）、操作数栈、动态链、方法出口信息。</p><p>虚拟机栈的生命周期和线程相同，会出现<code>OutOfMemoryError</code>和<code>StackOverFlowError</code>两种异常。</p><ul><li><p><code>OutOfMemoryError</code>：若虚拟机栈的内存大小不允许扩展，当线程请求栈的深度超过当前虚拟机栈的最大深度时，则抛出该异常。</p></li><li><p><code>StackOverFlowError</code>：若虚拟机的内存大小运行动态扩展，且当线程请求栈时内存刚好用完了，无法再进行动态扩展，这时就会抛出该异常。</p></li></ul><h1 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h1><p>与虚拟机栈相似，不同的是：</p><ul><li><p>虚拟机栈是为虚拟机执行Java方法（字节码）服务的</p></li><li><p>本地方法栈是为虚拟机使用到的Native方法（虚拟机底层的方法，C语言编写，可以访问操作系统底层信息）服务的</p></li></ul><p>本地方法栈同样会有栈帧，其存放的东西与虚拟机栈相同（面向的是本地方法），在HotSpot虚拟机（Sun JDK和OpenJDK中所带的虚拟机）实现中是把本地方法栈和虚拟机栈合二为一的</p><p>也会出现<code>OutOfMemoryError</code>和<code>StackOverFlowError</code>两种异常。</p><h1 id="堆（heap）"><a href="#堆（heap）" class="headerlink" title="堆（heap）"></a>堆（heap）</h1><p>堆作为线程共享的区域，在虚拟机中占用的内存是最大的，它的生命周期和虚拟机相同，随着虚拟机的启动而创建，用于存放对象实例和数组内存，是垃圾收集器管理的主要区域。</p><h1 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h1><p>方法区是用于存储已被虚拟机加载过的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p><h1 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h1><p>用于存放编译期生成的各种字面量和符号引用。</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/28/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0.jpg" srcset="data:image/png;base64,666" alt="26038433.jpg"/></div><span class="image-caption">26038433.jpg</span></div><p>其作为方法区的一部分，自然会受到方法区内存的限制，当常量池无法再申请到内存是便会抛出<code>OutOfMemoryError</code>异常。</p><h1 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h1><p>直接内存并不属于虚拟机运行时数据区的一部分，也不是虚拟机规范中定义的内存区域，但是这部分内存也被频繁地使用。而且也可能导致OutOfMemoryError异常出现。</p><p><strong>以上就是看完资料后做的一些笔记，鉴于原文后面的东西我现在也看不太懂，便不做记录，日后能力提升了再做记录吧。</strong></p>]]></content>
       
       
       
@@ -140,11 +140,11 @@
       
         <tags>
             
+            <tag> 小坑 </tag>
+            
             <tag> Mybatis </tag>
             
             <tag> 教程 </tag>
-            
-            <tag> 小坑 </tag>
             
         </tags>
       
@@ -184,9 +184,9 @@
             
             <tag> Mybatis </tag>
             
-            <tag> SpringBoot </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> SpringBoot </tag>
             
         </tags>
       
