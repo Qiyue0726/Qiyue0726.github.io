@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -23,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>素晴らしい未来</title>
+  <title>Mybatis动态SQL含运算语句 - 素晴らしい未来</title>
+  
+    <meta name="keywords" content="Mybatis,教程,小坑">
   
 
   
@@ -71,7 +69,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -322,12 +320,12 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  blank' style="display: ;">
+        <div id="full" class='cover-wrapper post blank' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/home/魔女兵器.png"></div>
           
           
-          <div id="scroll-down" style="display: ;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
@@ -338,513 +336,232 @@
         
 
 <div class='l_main'>
-  
-  <section class="post-list">
-    
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/17/hello-world/">
-        Hello World
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-17</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/17/hello-world/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
+  <article class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
   
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
   
-  
-  
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title" >
-      <a href="/2019/08/27/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%B3%BB%E5%88%97%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B3%A8%E5%86%8C%E5%8F%91%E7%8E%B0%E4%B8%8E%E8%B0%83%E7%94%A8/">
-        SpringCloud微服务架构系列服务的注册发现与调用
-      </a>
-    </h2>
-  
-  <div class='md'>
     
-      
-        简介众所周知，SpringCloud是一个微服务框架，本质上是基于SpringBoot的一整套实现微服务的框架。包含了服务发现、负载均衡、断路器、服务网关、分布式配置等组件。其中服务注册、发现又有Netflix的Eureka，阿里的Dubbo，Apache的Consul等，本篇文章将以Eureka进行讲解。
-EurekaEureka是Netflix开发的服务发现框架，本身是一个基于REST的...
-      
     
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-08-27</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/08/27/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%B3%BB%E5%88%97%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%B3%A8%E5%86%8C%E5%8F%91%E7%8E%B0%E4%B8%8E%E8%B0%83%E7%94%A8/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/08/19/%E6%B5%85%E6%9E%90%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B/">
-        浅析常用设计模式创建型
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        单例模式一. 概念单例模式是一种常见的设计模式。通过单例模式可以确保某个类有且仅有一个对象实例，能够自行实例化并向整个系统提供了这个实例。确保所有对象访问的都是同一个实例，避免对资源的多重占用，减少系统的性能开销。
-注： Spring的bean默认为单例模式
-二. 实现方法
-将构造函数设置为私有，限制外部实例化该对象
-提供一个getInstance方法返回内部创建的实例对象
-
-三. 几种基本...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-08-19</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/08/19/%E6%B5%85%E6%9E%90%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%9E%8B/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/08/01/SpringBoot%E7%B3%BB%E5%88%97%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/">
-        SpringBoot系列日志配置
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-导入 Maven 包
-SpringBoot 默认使用了 LogBack 日志系统，所以如无需求是没有必要改为其他日志系统的，也无需再进行多余的配置，LogBack 默认将日志打到控制台上。
-当我们新建 SpringBoot 项目时，Maven 会自动引用 spring-boot-starter 或 spring-boot-starter-web，而这两个起步依赖中已经包含了对于 sprin...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-08-01</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/08/01/SpringBoot%E7%B3%BB%E5%88%97%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/07/31/SpringBoot%E7%B3%BB%E5%88%97%E6%95%B4%E5%90%88Redis%E5%81%9A%E7%BC%93%E5%AD%98/">
-        SpringBoot系列整合Redis做缓存
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-一. 缓存的作用
-当应用体积大了，用户量上去了，数据规模也越来越大之后，数据库查询操作将成为用户体验的瓶颈，这时使用缓存会是一个非常好的解决办法。Spring 开始从3.1 开始就为我们提供了基于注解的缓存支持，通过注解方式低侵入地为我们的应用提供缓存支持。在SpringBoot中，更是以一系列自动配置的方式使我们能更加方便的使用缓存功能。
-
-二. 几个重要的注解
-
-
-
-名称
-解释
-
-
-
-...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-07-31</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/07/31/SpringBoot%E7%B3%BB%E5%88%97%E6%95%B4%E5%90%88Redis%E5%81%9A%E7%BC%93%E5%AD%98/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/07/30/SpringBoot%E7%B3%BB%E5%88%97%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/">
-        SpringBoot系列整合Druid数据库连接池
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-概念
-数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏。这项技术能明显提高对数据库操作的性能。（摘自百度百科）
-说白了，就是可以重复使用同一个数据库连接，不再需要进行打开、关闭连接,一切都交由数据库连接池去处理，一般可搭配 Mybatis ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-07-30</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/07/30/SpringBoot%E7%B3%BB%E5%88%97%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/07/25/Mybatis%E5%8A%A8%E6%80%81SQL%E5%90%AB%E8%BF%90%E7%AE%97%E8%AF%AD%E5%8F%A5/">
+      <h1 class="title">
         Mybatis动态SQL含运算语句
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        最近在一个小项目中用到分页，网上找到一条MySQL分页的公式
-12345int page;	&#x2F;&#x2F;page为当前页int pageSize;	&#x2F;&#x2F;pageSize为每页数量&#x2F;&#x2F;limit m, n 表示从第几条开始检索，查询多少条记录select * from table limit (page - 1)*page , pageSiz...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+      </h1>
+      <div class='new-meta-box'>
         
-        <time>2019-07-25</time>
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/site/%E5%87%89%E6%9C%88.png">
+    <p>凉月</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年7月25日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Mybatis动态SQL含运算语句" data-path="/2019/07/25/Mybatis%E5%8A%A8%E6%80%81SQL%E5%90%AB%E8%BF%90%E7%AE%97%E8%AF%AD%E5%8F%A5/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p>最近在一个小项目中用到分页，网上找到一条MySQL分页的公式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int page;	&#x2F;&#x2F;page为当前页</span><br><span class="line">int pageSize;	&#x2F;&#x2F;pageSize为每页数量</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;limit m, n 表示从第几条开始检索，查询多少条记录</span><br><span class="line">select * from table limit (page - 1)*page , pageSize;</span><br></pre></td></tr></table></figure>
+<p>看起来好像很简单，稍微改下mapper文件就行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;当参数超过一个时，需使用 @Param 标注</span><br><span class="line">ArrayList&lt;animaInfo&gt; selectAnima(@Param(&quot;page&quot;) int page, @Param(&quot;pageSize&quot;) int pageSize);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id&#x3D;&quot;selectAnima&quot; resultMap&#x3D;&quot;BaseResultMap&quot;&gt;</span><br><span class="line">  select</span><br><span class="line">  &lt;include refid&#x3D;&quot;Base_Column_List&quot; &#x2F;&gt;</span><br><span class="line">  from anima_info</span><br><span class="line">  limit (#&#123;page&#125; - 1) * #&#123;page&#125;, #&#123;pageSize&#125;</span><br><span class="line">&lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure>
+<p>保存、部署、运行一气呵成<br><img src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/25/image-d79e617c.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/25/image-d79e617c.png" srcset="data:image/png;base64,666" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2019-08-01 11:35:23.260 ERROR 7152 --- [p-nio-80-exec-2] o.a.c.c.C.[.[.[&#x2F;].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: </span><br><span class="line"></span><br><span class="line">### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#39;(1 - 1) * 1, 10&#39; at line 6</span><br><span class="line"></span><br><span class="line">### The error may exist in file [F:\Test\anima\target\classes\mapper\animaInfoMapper.xml]</span><br><span class="line">### The error may involve defaultParameterMap</span><br><span class="line">### The error occurred while setting parameters</span><br><span class="line">### SQL: select           id, anima_name, season, chapter, anima_link, watch_time, watch_status         from anima_info     limit (? - 1) * ?, ?</span><br><span class="line">### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#39;(1 - 1) * 1, 10&#39; at line 6</span><br><span class="line">; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#39;(1 - 1) * 1, 10&#39; at line 6] with root cause</span><br></pre></td></tr></table></figure>
+
+<p>あれ，居然出问题了</p>
+<blockquote>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1></blockquote>
+<p>赶紧查找大佬博客资料，好像Mybatis不能执行这种含有运算符的语句，有点坑。</p>
+<p>知道问题就好办了，继续查找。</p>
+<p>发现了一个标签<code>&lt;bind&gt;</code>,可以使用 OGNL 表达式创建一个变量井将其绑定到上下文中。</p>
+<p>继续改改，试试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id&#x3D;&quot;selectAnima&quot; resultMap&#x3D;&quot;BaseResultMap&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;bind name&#x3D;&quot;num&quot; value&#x3D;&quot;(page - 1) * limit&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    select</span><br><span class="line">    &lt;include refid&#x3D;&quot;Base_Column_List&quot; &#x2F;&gt;</span><br><span class="line">    from anima_info</span><br><span class="line">    limit #&#123;num&#125; , #&#123;pageSize&#125;</span><br><span class="line">  &lt;&#x2F;select&gt;</span><br></pre></td></tr></table></figure>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/25/image-96655716.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/2019/07/25/image-96655716.png" srcset="data:image/png;base64,666" alt="image.png"/></div><span class="image-caption">image.png</span></div>
+<p>很好，完美运行</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2019/07/25/Mybatis%E5%8A%A8%E6%80%81SQL%E5%90%AB%E8%BF%90%E7%AE%97%E8%AF%AD%E5%8F%A5/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://www.subarashii.top/2019/07/25/Mybatis%E5%8A%A8%E6%80%81SQL%E5%90%AB%E8%BF%90%E7%AE%97%E8%AF%AD%E5%8F%A5/>http://www.subarashii.top/2019/07/25/Mybatis%E5%8A%A8%E6%80%81SQL%E5%90%AB%E8%BF%90%E7%AE%97%E8%AF%AD%E5%8F%A5/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-28T10:41:34+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2019年8月28日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/07/24/%E7%BD%91%E9%A1%B5%E6%A0%B7%E5%BC%8F%E4%B8%8D%E8%A7%81%E4%BA%86/">
-        网页样式不见了
-      </a>
-    </h2>
-  
-  <div class='md'>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Mybatis/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Mybatis</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%99%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>教程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B0%8F%E5%9D%91/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>小坑</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        在一个Spring Boot项目中，将HTML文件放到templates文件夹里有一个好处，可以在Controller里直接返回HTML文件的文件名
-123456789@Controller@RequestMapping(&quot;/anima&quot;)public class animaController &#123;    @RequestMapping(&quot;/index...
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.subarashii.top/2019/07/25/Mybatis%E5%8A%A8%E6%80%81SQL%E5%90%AB%E8%BF%90%E7%AE%97%E8%AF%AD%E5%8F%A5/&title=Mybatis动态SQL含运算语句 - 素晴らしい未来&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.subarashii.top/2019/07/25/Mybatis%E5%8A%A8%E6%80%81SQL%E5%90%AB%E8%BF%90%E7%AE%97%E8%AF%AD%E5%8F%A5/&title=Mybatis动态SQL含运算语句 - 素晴らしい未来&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.subarashii.top/2019/07/25/Mybatis%E5%8A%A8%E6%80%81SQL%E5%90%AB%E8%BF%90%E7%AE%97%E8%AF%AD%E5%8F%A5/&title=Mybatis动态SQL含运算语句 - 素晴らしい未来&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-07-24</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/07/24/%E7%BD%91%E9%A1%B5%E6%A0%B7%E5%BC%8F%E4%B8%8D%E8%A7%81%E4%BA%86/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/07/24/SpringBoot%E7%B3%BB%E5%88%97%E4%BD%BF%E7%94%A8Generator%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90/">
-        SpringBoot系列使用Generator进行自动生成
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-Maven导入Generator插件
-properties标签下配置版本信息
-12&lt;mybatis-generator-maven-plugin.version&gt;1.3.7&lt;&#x2F;mybatis-generator-maven-plugin.version&gt;&lt;mybatis-generator-core.version&gt;1.3.7&lt;&#x2F...
-      
-    
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-07-24</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/07/24/SpringBoot%E7%B3%BB%E5%88%97%E4%BD%BF%E7%94%A8Generator%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
   
 
-</div>
-
-          </div>
-        
+  
+    <div class="prev-next">
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/07/23/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E7%BC%93%E5%AD%98%E5%87%BB%E9%80%8F%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-        缓存穿透缓存雪崩缓存击透的概念及解决方案
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
+        <a class='prev' href='/2019/07/30/SpringBoot%E7%B3%BB%E5%88%97%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>SpringBoot系列整合Druid数据库连接池</p>
+          <p class='content'>
+概念
+数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的...</p>
+        </a>
       
-        缓存穿透当客户端频繁地向服务器请求一个缓存中不存在的数据时，服务器会不断查询数据库，数据库可能会因此挂掉。
-
-解决方案
-
-这里有一个简单粗暴的方法。
-当查询数据库时，如果结果返回null，这时仍然对其结果进行缓存，但缓存的过期时间很短。
-缓存雪崩在设置缓存时都设置了相同的过期时间，致使缓存同时失效，所有请求将全部转发给数据库，数据库瞬时压力过重，导致雪崩。
-
-解决方案
-
-可以在原有的失效时间...
       
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-07-23</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/07/23/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E7%BC%93%E5%AD%98%E5%87%BB%E9%80%8F%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/'>
-            阅读全文
-          </a>
-        </div>
+        <a class='next' href='/2019/07/24/%E7%BD%91%E9%A1%B5%E6%A0%B7%E5%BC%8F%E4%B8%8D%E8%A7%81%E4%BA%86/'>
+          <p class='title'>网页样式不见了<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>在一个Spring Boot项目中，将HTML文件放到templates文件夹里有一个好处，可以在Controller里直接返回HTML文件的文件名
+123456789@Controller@R...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow floatable" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
+
+
+
+
 
 
 </div>
@@ -854,224 +571,22 @@ properties标签下配置版本信息
     
     
 
-<section class="widget blogger shadow floatable desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/Qiyue0726/Images/imgs/site/%E5%87%89%E6%9C%88.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">素晴らしい未来</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:yujianhao0726@163.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/Qiyue0726/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable desktop mobile">
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Mybatis/" style="font-size: 17.33px; color: #828282">Mybatis</a> <a href="/tags/Redis/" style="font-size: 17.33px; color: #828282">Redis</a> <a href="/tags/SpringBoot/" style="font-size: 20.67px; color: #6c6c6c">SpringBoot</a> <a href="/tags/SpringCloud/" style="font-size: 14px; color: #999">SpringCloud</a> <a href="/tags/%E5%B0%8F%E5%9D%91/" style="font-size: 17.33px; color: #828282">小坑</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 24px; color: #555">教程</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 14px; color: #999">设计模式</a>
+        
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-
-<section class="widget shadow floatable desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>10 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/10/18'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>12.5k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sat Oct 24 2020 22:21:20 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-10-24 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-10-24 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
@@ -1087,14 +602,14 @@ properties标签下配置版本信息
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Mybatis动态SQL含运算语句";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
