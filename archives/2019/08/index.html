@@ -663,7 +663,7 @@ EurekaEureka是Netflix开发的服务发现框架，本身是一个基于REST的
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun Oct 25 2020 02:08:02 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Sun Oct 25 2020 02:17:37 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2020-10-25 日</div>
           
         </div>
@@ -980,6 +980,20 @@ var loadCSS = function( href, before, media, attributes ){
         
         
         
+        >
+        <i class='fas fa-moon fa-fw'></i> 暗黑模式
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+        
+        
+        
           onclick="document.execCommand('print')"
         
         >
@@ -1118,7 +1132,7 @@ var loadCSS = function( href, before, media, attributes ){
       }
 
       // 有音乐播放器
-      if ('true' == true && ('print,hr,music'||[]).includes('music')) {
+      if ('true' == true && ('darkmode,print,hr,music'||[]).includes('music')) {
         // 如果有aplayer，初始化一下
       	try {
       		checkAPlayer();

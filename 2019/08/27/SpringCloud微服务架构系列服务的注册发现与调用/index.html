@@ -892,6 +892,20 @@ var loadCSS = function( href, before, media, attributes ){
         
         
         
+        >
+        <i class='fas fa-moon fa-fw'></i> 暗黑模式
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default' 
+        
+        
+        
           onclick="document.execCommand('print')"
         
         >
@@ -1030,7 +1044,7 @@ var loadCSS = function( href, before, media, attributes ){
       }
 
       // 有音乐播放器
-      if ('true' == true && ('print,hr,music'||[]).includes('music')) {
+      if ('true' == true && ('darkmode,print,hr,music'||[]).includes('music')) {
         // 如果有aplayer，初始化一下
       	try {
       		checkAPlayer();
